@@ -51,7 +51,19 @@ export const updateEventRepo = async (id: string, updates: Partial<Event>): Prom
 };
 
 
+/**
+ * This will delete an event by ID.
+ * @param id - Event ID.
+ * @returns True if deleted, and false if not found.
+ */
+export const deleteEventRepo = async (id: string): Promise<boolean> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return false;
 
+    await docRef.delete();
+    return true;
+};
 
 
 
