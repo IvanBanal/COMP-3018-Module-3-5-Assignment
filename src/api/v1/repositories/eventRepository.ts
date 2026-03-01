@@ -14,6 +14,13 @@ export const createEventRepo = async (event: Event): Promise<Event> => {
   return event;
 };
 
-
+/**
+ * This will retrieve all events from Firestore.
+ * @returns Array of events.
+ */
+export const getAllEventsRepo = async (): Promise<Event[]> => {
+    const snapshot = await db.collection(COLLECTION).get();
+    return snapshot.docs.map((doc: any) => doc.data());
+};
 
 
