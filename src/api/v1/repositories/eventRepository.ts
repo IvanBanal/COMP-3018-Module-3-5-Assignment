@@ -23,4 +23,16 @@ export const getAllEventsRepo = async (): Promise<Event[]> => {
     return snapshot.docs.map((doc: any) => doc.data());
 };
 
+/**
+ * This will retrieve a single event by ID.
+ * @param id - event ID
+ * @returns Event or null if not found.
+ */
+export const getEventByIdRepo = async (id: string): Promise<Event | null> => {
+    const doc = await db.collection(COLLECTION).doc(id).get();
+    if (!doc.exists) return null;
+    return doc.data() as Event;
+};
+
+
 
