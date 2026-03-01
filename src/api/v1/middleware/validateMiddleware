@@ -1,0 +1,23 @@
+import { Request, Response, NextFunction } from "express";
+import {ObjectSchema} from "joi";
+import { HTTP_STATUS } from "../../../constants/httpConstants"
+
+/**
+ * Validation for middleware.
+ * @param schema - Joi schema to validate the request body against.
+ */
+export const validate = 
+    (schema: ObjectSchema) =>
+    (req: Request, res: Response, next: NextFunction) => {
+        const {error, value } = schema.validate(req.body);
+
+        if (error) {
+            return res.status(HTTP_STATUS.BAD_REQUEST).json({
+                message: `Validation error: ${error.message}`,
+            });
+        }
+
+        // This will apply defaults.
+        req.body = value;
+        next();
+    };
