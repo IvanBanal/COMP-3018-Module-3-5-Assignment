@@ -32,3 +32,11 @@ export const createEventService = async (data: Event) => {
     };
     return await repo.createEventRepo(event);
 };
+
+/**
+ * This will retrieve all events.
+ * @returns Array of events.
+ */
+export const getAllEventsService = async () => {
+    return await repo.getAllEventsRepo();
+};
