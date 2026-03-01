@@ -10,4 +10,7 @@ export const createEventSchema = Joi.object({
     // Using Joi.ref("capacity"), we can reference the value of "capacity".
     registrationCount: Joi.number().integer().min(0).max(Joi.ref("capacity")).default(0),
 
+    status: Joi.string().valid("active", "cancelled", "completed").default("active"),
+    
+
 })
