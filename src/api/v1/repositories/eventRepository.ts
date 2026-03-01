@@ -34,5 +34,24 @@ export const getEventByIdRepo = async (id: string): Promise<Event | null> => {
     return doc.data() as Event;
 };
 
+/**
+ * This will update an existing event in Firestore.
+ * @param id - Event ID.
+ * @param updates - The fields to update.
+ * @returns Updated event or null if not found.
+ */
+export const updateEventRepo = async (id: string, updates: Partial<Event>): Promise<Event | null> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return null;
+
+    await docRef.update(updates);
+    const updated = await docRef.get();
+    return updated.data() as Event;
+};
+
+
+
+
 
 
