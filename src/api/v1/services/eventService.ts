@@ -40,3 +40,12 @@ export const createEventService = async (data: Event) => {
 export const getAllEventsService = async () => {
     return await repo.getAllEventsRepo();
 };
+
+/**
+ * This will retrieve event by ID.
+ * @param id - Event ID.
+ * @returns Event or null.
+ */
+export const getEventByIdService = async (id: string) => {
+    return await repo.getEventByIdRepo(id);
+};
