@@ -16,3 +16,19 @@ const generateId = () => {
      */
     return `evt_${String(counter++).padStart(6, "0")}`;
 };
+
+/**
+ * This will create a new event and saves it to Firestore.
+ * @param data - Event input data.
+ * @returns Created Event with generated fields.
+ */
+export const createEventService = async (data: Event) => {
+    const now = new Date().toISOString();
+    const event: Event = {
+        ...data, 
+        id: generateId(),
+        createdAt: now,
+        updatedAt: now,
+    };
+    return await repo.createEventRepo(event);
+};
