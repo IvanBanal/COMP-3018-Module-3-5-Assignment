@@ -11,6 +11,6 @@ export const createEventSchema = Joi.object({
     registrationCount: Joi.number().integer().min(0).max(Joi.ref("capacity")).default(0),
 
     status: Joi.string().valid("active", "cancelled", "completed").default("active"),
-    
 
-})
+    category: Joi.string().valid("conference", "workshop", "meetup", "seminar", "general").default("general"),
+});
