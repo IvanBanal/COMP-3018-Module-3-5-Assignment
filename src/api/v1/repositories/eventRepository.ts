@@ -9,7 +9,7 @@ const COLLECTION = "events";
  * @returns The saved Event.
  */
 export const createEventRepo = async (event: Event): Promise<Event> => {
-  const docRef = db.collection(COLLECTION).doc(event.id);
+  const docRef = db.collection(COLLECTION).doc(event.id!);
   await docRef.set(event);
   return event;
 };
