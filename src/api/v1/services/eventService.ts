@@ -60,3 +60,12 @@ export const updateEventService = async (id: string, updates: Partial<Event>) =>
     updates.updatedAt = new Date().toISOString();
     return await repo.updateEventRepo(id, updates);
 };
+
+/**
+ * This will delete an event by ID.
+ * @param id - Event ID.
+ * @returns True if deleted, and false otherwise.
+ */
+export const deleteEventService = async (id: string) => {
+    return await repo.deleteEventRepo(id);
+};
