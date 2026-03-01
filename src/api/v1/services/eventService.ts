@@ -49,3 +49,14 @@ export const getAllEventsService = async () => {
 export const getEventByIdService = async (id: string) => {
     return await repo.getEventByIdRepo(id);
 };
+
+/**
+ * This will update an existing event.
+ * @param id - Event ID.
+ * @param updates - The fields to update.
+ * @returns Updated Event or null.
+ */
+export const updateEventService = async (id: string, updates: Partial<Event>) => {
+    updates.updatedAt = new Date().toISOString();
+    return await repo.updateEventRepo(id, updates);
+};
