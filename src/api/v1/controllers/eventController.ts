@@ -29,9 +29,14 @@ export const createEvent = async (req: Request, res: Response): Promise<void> =>
 /**
  * This is a controller to retrieve all events.
  */
-export const getAllEvents = async (_req: Request, res: Response) => {
+export const getAllEvents = async (req: Request, res: Response) => {
     const events = await service.getAllEventsService();
-    res.status(HTTP_STATUS.OK).json(events);
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Events retrieved",
+        count: events.length,
+        data: events,
+    });
 };
 
 /**
