@@ -22,14 +22,21 @@ const generateId = () => {
  * @param data - Event input data.
  * @returns Created Event with generated fields.
  */
-export const createEventService = async (data: Event) => {
+export const createEventService = async (data: Partial<Event>): Promise<Event> => {
     const now = new Date().toISOString();
+
     const event: Event = {
-        ...data, 
         id: generateId(),
+        name: data.name!,                  
+        date: data.date!,
+        capacity: data.capacity!,
+        registrationCount: data.registrationCount ?? 0,
+        status: data.status ?? "active",
+        category: data.category ?? "general",
         createdAt: now,
         updatedAt: now,
     };
+
     return await repo.createEventRepo(event);
 };
 
