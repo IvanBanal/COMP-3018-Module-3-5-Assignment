@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import eventRoutes from "../src/api/v1/routes/eventRoutes";
 
 // Initialize Express application
 const app: Express = express();
@@ -17,5 +18,10 @@ app.get("/api/v1/health", (req, res) => {
         version: "1.0.0",
     });
 });
+
+app.use(express.json());
+
+// API Routes.
+app.use("api/v1/events", eventRoutes);
 
 export default app;
