@@ -9,7 +9,7 @@ const router = Router();
 router.post("/", validate(createEventSchema), controller.createEvent);
 router.get("/", controller.getAllEvents);
 router.get("/:id", controller.getEventById);
-router.get("/:id", controller.updateEvent);
+router.put("/:id", controller.updateEvent);
 router.delete("/:id", controller.deleteEvent);
 
 export default router;
