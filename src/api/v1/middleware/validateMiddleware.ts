@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import {ObjectSchema} from "joi";
+import { ObjectSchema } from "joi";
 import { HTTP_STATUS } from "../../../constants/httpConstants"
 
 /**
@@ -8,13 +8,14 @@ import { HTTP_STATUS } from "../../../constants/httpConstants"
  */
 export const validate = 
     (schema: ObjectSchema) =>
-    (req: Request, res: Response, next: NextFunction) => {
+    (req: Request, res: Response, next: NextFunction): void => {
         const {error, value } = schema.validate(req.body);
 
         if (error) {
-            return res.status(HTTP_STATUS.BAD_REQUEST).json({
+            res.status(HTTP_STATUS.BAD_REQUEST).json({
                 message: `Validation error: ${error.message}`,
             });
+            return;
         }
 
         // This will apply defaults.
