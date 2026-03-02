@@ -22,6 +22,6 @@ app.get("/api/v1/health", (req, res) => {
 app.use(express.json());
 
 // API Routes.
-app.use("api/v1/events", eventRoutes);
+app.use("/api/v1/events", eventRoutes);
 
 export default app;
