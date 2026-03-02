@@ -32,13 +32,19 @@ export const createEvent = async (req: Request, res: Response): Promise<void> =>
 export const getAllEvents = async (req: Request, res: Response) => {
     const events = await service.getAllEventsService();
 
+    const formattedEvents = events.map((event: any) => ({
+        ...event,
+        date: event.date?.toDate
+            ? event.date.toDate().toISOString()
+            : event.date
+    }));
+
     res.status(HTTP_STATUS.OK).json({
         message: "Events retrieved",
-        count: events.length,
-        data: events,
+        count: formattedEvents.length,
+        data: formattedEvents
     });
 };
-
 /**
  * This is a controller to retrieve an event by ID.
  */
