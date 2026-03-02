@@ -8,9 +8,21 @@ import { HTTP_STATUS } from "../../../constants/httpConstants";
 export const createEvent = async (req: Request, res: Response): Promise<void> => {
     const event = await service.createEventService(req.body);
 
+    const responseData = {
+        id: event.id,
+        name: event.name,
+        date: event.date,
+        capacity: event.capacity,
+        registrationCount: event.registrationCount,
+        status: event.status,
+        category: event.category,
+        createdAt: event.createdAt,
+        updatedAt: event.updatedAt,
+    };
+
      res.status(HTTP_STATUS.CREATED).json({
         message: "Event created",
-        data: event,
+        data: responseData,
     });
 };
 
