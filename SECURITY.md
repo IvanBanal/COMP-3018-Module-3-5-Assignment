@@ -65,4 +65,9 @@ cors({
 
 ### Justification
 
+1. **origin: true** - This allows all origins to simplify testing and local development. Only explicitly allowed
+origins from ALLOWED_ORIGINS can access the API. This prevents unauthorized domains from making requests, reducing
+the risk of cross-origin attacks.
+
+
 ### Sources
