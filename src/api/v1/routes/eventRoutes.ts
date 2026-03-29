@@ -160,6 +160,78 @@ router.get("/", controller.getAllEvents);
  *         description: Internal server error
  */
 router.get("/:id", controller.getEventById);
+
+/**
+ * @openapi
+ * /events/{id}:
+ *   put:
+ *     summary: Update an existing event
+ *     description: Modify an existing event by ID
+ *     tags: [Events]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "Updated Tech Conference"
+ *               date:
+ *                 type: string
+ *                 format: date-time
+ *                 example: "2026-06-20T09:00:00Z"
+ *               capacity:
+ *                 type: number
+ *                 example: 200
+ *               registrationCount:
+ *                 type: number
+ *                 example: 5
+ *               status:
+ *                 type: string
+ *                 enum: [active, cancelled, completed]
+ *                 example: "active"
+ *               category:
+ *                 type: string
+ *                 enum: [conference, workshop, meetup, seminar, general]
+ *                 example: "conference"
+ *     responses:
+ *       '200':
+ *         description: Event updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event updated"
+ *                 data:
+ *                   $ref: '#/components/schemas/Event'
+ *       '404':
+ *         description: Event not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event not found"
+ *       '401':
+ *         description: Unauthorized - Missing or invalid authentication token
+ *       '500':
+ *         description: Internal server error
+ */
 router.put("/:id", controller.updateEvent);
 router.delete("/:id", controller.deleteEvent);
 
