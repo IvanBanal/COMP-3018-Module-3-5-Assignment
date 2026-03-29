@@ -233,6 +233,48 @@ router.get("/:id", controller.getEventById);
  *         description: Internal server error
  */
 router.put("/:id", controller.updateEvent);
+
+/**
+ * @openapi
+ * /events/{id}:
+ *   delete:
+ *     summary: Delete an event
+ *     description: Remove an event by its ID
+ *     tags: [Events]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Event deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event deleted"
+ *       '404':
+ *         description: Event not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event not found"
+ *       '401':
+ *         description: Unauthorized - Missing or invalid authentication token
+ *       '500':
+ *         description: Internal server error
+ */
 router.delete("/:id", controller.deleteEvent);
 
 export default router;
