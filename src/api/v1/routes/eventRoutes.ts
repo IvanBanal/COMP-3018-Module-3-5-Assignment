@@ -6,6 +6,80 @@ import { createEventSchema } from "../validation/eventSchema";
 const router = Router();
 
 // Event Routes.
+/**
+ * @openapi
+ * /events:
+ *   post:
+ *     summary: Create a new event
+ *     description: Add a new event to the system
+ *     tags: [Events]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - date
+ *               - capacity
+ *               - status
+ *               - category
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "Tech Conference 2026"
+ *               date:
+ *                 type: string
+ *                 format: date-time
+ *                 example: "2026-06-15T09:00:00Z"
+ *               capacity:
+ *                 type: number
+ *                 example: 150
+ *               registrationCount:
+ *                 type: number
+ *                 example: 0
+ *               status:
+ *                 type: string
+ *                 enum: [active, cancelled, completed]
+ *                 example: "active"
+ *               category:
+ *                 type: string
+ *                 enum: [conference, workshop, meetup, seminar, general]
+ *                 example: "conference"
+ *     responses:
+ *       '201':
+ *         description: Event created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event created"
+ *                 data:
+ *                   $ref: '#/components/schemas/Event'
+ *       '400':
+ *         description: Invalid input data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 error:
+ *                   type: string
+ *                   example: "Missing required field: name"
+ *       '401':
+ *         description: Unauthorized - Missing or invalid authentication token
+ *       '500':
+ *         description: Internal server error
+ */
 router.post("/", validate(createEventSchema), controller.createEvent);
 router.get("/", controller.getAllEvents);
 router.get("/:id", controller.getEventById);
