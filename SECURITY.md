@@ -75,4 +75,7 @@ certificates. This is necessary if the API relies on session-based authenticatio
 3. **methods: ["GET", "POST", "PUT", "DELETE"]** - Restricting to GET, POST, PUT, DELETE prevents unexpected or unsafe HTTP methods
 from being accepted by your API.
 
+4. **allowedHeaders: ["Content-Type", "Authorization"]** - This restricts headers to Content-Type and Authorization, preventing 
+clients from sending unexpected headers that could be used for attacks.
+
 ### Sources
