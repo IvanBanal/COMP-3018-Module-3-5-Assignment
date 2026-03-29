@@ -72,7 +72,7 @@ the risk of cross-origin attacks.
 2. **credentials: true** - This enables sending cookies, authorization headers, or TLS (Transport Layer Security) client 
 certificates. This is necessary if the API relies on session-based authentication or JWT tokens.
 
-
-
+3. **methods: ["GET", "POST", "PUT", "DELETE"]** - Restricting to GET, POST, PUT, DELETE prevents unexpected or unsafe HTTP methods
+from being accepted by your API.
 
 ### Sources
