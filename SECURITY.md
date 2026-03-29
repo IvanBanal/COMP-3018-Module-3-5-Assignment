@@ -51,3 +51,5 @@ sensitive URLs.
 2. OWASP Secure Headers Project - https://owasp.org/www-project-secure-headers/
 
 ## CORS Configuration 
+
+### Configuration Applied
