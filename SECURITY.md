@@ -49,3 +49,5 @@ sensitive URLs.
 
 1. Helmet.js Official Documentation - https://helmetjs.github.io/
 2. OWASP Secure Headers Project - https://owasp.org/www-project-secure-headers/
+
+## CORS Configuration 
