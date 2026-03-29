@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 // Load environment variables BEFORE your internal imports!
 dotenv.config();
 
+import cors from "cors";
+import { getCorsOptions } from "../src/config/corsConfig";
 import { getHelmetConfig } from "../src/config/helmetConfig";
 import eventRoutes from "../src/api/v1/routes/eventRoutes";
 
@@ -13,6 +15,8 @@ const app: Express = express();
 
 // Apply basic Helmet security
 app.use(getHelmetConfig());
+
+app.use(cors(getCorsOptions()));
 
 // Define a route
 app.get("/", (req, res) => {
