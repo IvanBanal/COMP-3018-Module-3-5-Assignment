@@ -115,6 +115,50 @@ router.post("/", validate(createEventSchema), controller.createEvent);
  *         description: Internal server error
  */
 router.get("/", controller.getAllEvents);
+
+/**
+ * @openapi
+ * /events/{id}:
+ *   get:
+ *     summary: Retrieve a single event
+ *     description: Get details of an event by its ID
+ *     tags: [Events]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Event retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event retrieved"
+ *                 data:
+ *                   $ref: '#/components/schemas/Event'
+ *       '404':
+ *         description: Event not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Event not found"
+ *       '401':
+ *         description: Unauthorized - Missing or invalid authentication token
+ *       '500':
+ *         description: Internal server error
+ */
 router.get("/:id", controller.getEventById);
 router.put("/:id", controller.updateEvent);
 router.delete("/:id", controller.deleteEvent);
