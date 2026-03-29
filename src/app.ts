@@ -7,6 +7,7 @@ dotenv.config();
 import cors from "cors";
 import { getCorsOptions } from "../src/config/corsConfig";
 import { getHelmetConfig } from "../src/config/helmetConfig";
+import setupSwagger from "../src/config/swagger";
 import eventRoutes from "../src/api/v1/routes/eventRoutes";
 
 
@@ -37,5 +38,8 @@ app.use(express.json());
 
 // API Routes.
 app.use("/api/v1/events", eventRoutes);
+
+// Setup Swagger
+setupSwagger(app);
 
 export default app;
