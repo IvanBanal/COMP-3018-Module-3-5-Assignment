@@ -69,5 +69,10 @@ cors({
 origins from ALLOWED_ORIGINS can access the API. This prevents unauthorized domains from making requests, reducing
 the risk of cross-origin attacks.
 
+2. **credentials: true** - This enables sending cookies, authorization headers, or TLS (Transport Layer Security) client 
+certificates. This is necessary if the API relies on session-based authentication or JWT tokens.
+
+
+
 
 ### Sources
