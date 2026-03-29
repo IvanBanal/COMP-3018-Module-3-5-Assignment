@@ -85,3 +85,4 @@ clients from sending unexpected headers that could be used for attacks.
 ### Sources
 
 1. MDN Web Docs Cross-Origin Resource Sharing (CORS) - https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+2. Express.js CORS Middleware Documentation - https://expressjs.com/en/resources/middleware/cors.html
