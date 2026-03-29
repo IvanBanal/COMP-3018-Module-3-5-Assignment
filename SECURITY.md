@@ -53,3 +53,5 @@ sensitive URLs.
 ## CORS Configuration 
 
 ### Configuration Applied
+
+### Justification
