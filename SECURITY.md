@@ -65,6 +65,10 @@ cors({
 
 ### Justification
 
+Simlar to Helmet.js Configuration this is copy-pasted from the Module 5 notes. I will explain the comfigurations used 
+here using resources from the MDN Web Docs Cross-Origin Resource Sharing (CORS) documentation with some support 
+with the Express.js CORS Middleware Documentation.
+
 1. **origin: true** - This allows all origins to simplify testing and local development. Only explicitly allowed
 origins from ALLOWED_ORIGINS can access the API. This prevents unauthorized domains from making requests, reducing
 the risk of cross-origin attacks.
