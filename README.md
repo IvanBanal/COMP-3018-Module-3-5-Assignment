@@ -27,27 +27,38 @@ git clone https://github.com/IvanBanal/COMP-3018-Module-3-5-Assignment
 cd COMP-3018-Module-3-5-Assignment
 ```
 
+```bash
 # Install dependencies
 npm install
+```
 
+```bash
 # Copy example environment file
 cp .env.example .env
+```
 
-# Edit .env and set the required variables
-# Example:
-# PORT=3000
-# ALLOWED_ORIGINS=http://localhost:3000
-# FIREBASE_PROJECT_ID=your_project_id
-# FIREBASE_PRIVATE_KEY=your_private_key
-# FIREBASE_CLIENT_EMAIL=your_client_email
-# SWAGGER_SERVER_URL=http://localhost:3000/api-docs
+```bash
+Environment variable setup
+Edit .env and set the required variables
+Example:
+PORT=3000
+ALLOWED_ORIGINS=http://localhost:3000
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_PRIVATE_KEY=your_private_key
+FIREBASE_CLIENT_EMAIL=your_client_email
+SWAGGER_SERVER_URL=http://localhost:3000/api-docs
+```
 
+```bash
 # Run the server
 npm run start
+```
 
+```bash
 Server runs at: http://localhost:3000/api/v1
 
 Health check endpoint: http://localhost:3000/api/v1/health
+```
 
 # API Endpoints
 
