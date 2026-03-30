@@ -38,7 +38,7 @@ cp .env.example .env
 ```
 
 ```bash
-Environment variable setup
+# Environment variable setup
 Edit .env and set the required variables
 Example:
 PORT=3000
@@ -93,6 +93,7 @@ Response (201 Created)
  ```
 
 ## 2. Get All Events
+```bash
 curl -X GET http://localhost:3000/api/v1/events \
   -H "Authorization: Bearer <your-token>"
 
@@ -114,8 +115,10 @@ curl -X GET http://localhost:3000/api/v1/events \
      }
    ]
  }
+ ```
 
 ## 3. Get Event by ID
+```bash
 curl -X GET http://localhost:3000/api/v1/events/evt_000001 \
   -H "Authorization: Bearer <your-token>"
 
@@ -134,8 +137,10 @@ curl -X GET http://localhost:3000/api/v1/events/evt_000001 \
      "updatedAt": "2026-01-01T10:00:00Z"
    }
  }
+```
 
 ## 4. Update Event
+```bash
 curl -X PUT http://localhost:3000/api/v1/events/evt_000001 \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token>" \
@@ -162,8 +167,10 @@ curl -X PUT http://localhost:3000/api/v1/events/evt_000001 \
      "updatedAt": "2026-01-05T12:00:00Z"
    }
  }
+```
 
 ## 5. Delete Event
+```bash
 curl -X DELETE http://localhost:3000/api/v1/events/evt_000001 \
   -H "Authorization: Bearer <your-token>"
 
@@ -171,6 +178,7 @@ curl -X DELETE http://localhost:3000/api/v1/events/evt_000001 \
  {
    "message": "Event deleted"
  }
+```
 
 # API Documentation
 
@@ -179,3 +187,4 @@ https://github.com/IvanBanal/COMP-3018-Module-3-5-Assignment
 
 Swagger UI (local):
 http://localhost:3000/api-docs
+
