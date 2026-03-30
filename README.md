@@ -62,7 +62,7 @@ Health check endpoint: http://localhost:3000/api/v1/health
 
 # API Endpoints
 
-# 1. Create Event
+## 1. Create Event
 curl -X POST http://localhost:3000/api/v1/events \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token>" \
@@ -74,66 +74,66 @@ curl -X POST http://localhost:3000/api/v1/events \
     "category": "conference"
   }'
 
-# Response (201 Created)
-# {
-#   "message": "Event created",
-#   "data": {
-#     "id": "event_123abc",
-#     "name": "Tech Conference 2026",
-#     "date": "2026-06-15T09:00:00Z",
-#     "capacity": 150,
-#     "registrationCount": 0,
-#     "status": "active",
-#     "category": "conference",
-#     "createdAt": "2026-01-01T10:00:00Z",
-#     "updatedAt": "2026-01-01T10:00:00Z"
-#   }
-# }
+Response (201 Created)
+ {
+   "message": "Event created",
+   "data": {
+     "id": "event_123abc",
+     "name": "Tech Conference 2026",
+     "date": "2026-06-15T09:00:00Z",
+     "capacity": 150,
+     "registrationCount": 0,
+     "status": "active",
+     "category": "conference",
+     "createdAt": "2026-01-01T10:00:00Z",
+     "updatedAt": "2026-01-01T10:00:00Z"
+   }
+ }
 
-# 2. Get All Events
+## 2. Get All Events
 curl -X GET http://localhost:3000/api/v1/events \
   -H "Authorization: Bearer <your-token>"
 
-# Response (200 OK)
-# {
-#   "message": "Events retrieved",
-#   "count": 2,
-#   "data": [
-#     {
-#       "id": "event_123abc",
-#       "name": "Tech Conference 2026",
-#       "date": "2026-06-15T09:00:00Z",
-#       "capacity": 150,
-#       "registrationCount": 0,
-#       "status": "active",
-#       "category": "conference",
-#       "createdAt": "2026-01-01T10:00:00Z",
-#       "updatedAt": "2026-01-01T10:00:00Z"
-#     }
-#   ]
-# }
+ Response (200 OK)
+ {
+   "message": "Events retrieved",
+   "count": 2,
+   "data": [
+     {
+       "id": "event_123abc",
+       "name": "Tech Conference 2026",
+       "date": "2026-06-15T09:00:00Z",
+       "capacity": 150,
+       "registrationCount": 0,
+       "status": "active",
+       "category": "conference",
+       "createdAt": "2026-01-01T10:00:00Z",
+       "updatedAt": "2026-01-01T10:00:00Z"
+     }
+   ]
+ }
 
-# 3. Get Event by ID
+## 3. Get Event by ID
 curl -X GET http://localhost:3000/api/v1/events/event_123abc \
   -H "Authorization: Bearer <your-token>"
 
-# Response (200 OK)
-# {
-#   "message": "Event retrieved",
-#   "data": {
-#     "id": "event_123abc",
-#     "name": "Tech Conference 2026",
-#     "date": "2026-06-15T09:00:00Z",
-#     "capacity": 150,
-#     "registrationCount": 0,
-#     "status": "active",
-#     "category": "conference",
-#     "createdAt": "2026-01-01T10:00:00Z",
-#     "updatedAt": "2026-01-01T10:00:00Z"
-#   }
-# }
+ Response (200 OK)
+ {
+   "message": "Event retrieved",
+   "data": {
+     "id": "event_123abc",
+     "name": "Tech Conference 2026",
+     "date": "2026-06-15T09:00:00Z",
+     "capacity": 150,
+     "registrationCount": 0,
+     "status": "active",
+     "category": "conference",
+     "createdAt": "2026-01-01T10:00:00Z",
+     "updatedAt": "2026-01-01T10:00:00Z"
+   }
+ }
 
-# 4. Update Event
+## 4. Update Event
 curl -X PUT http://localhost:3000/api/v1/events/event_123abc \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token>" \
@@ -145,32 +145,32 @@ curl -X PUT http://localhost:3000/api/v1/events/event_123abc \
     "category": "conference"
   }'
 
-# Response (200 OK)
-# {
-#   "message": "Event updated",
-#   "data": {
-#     "id": "event_123abc",
-#     "name": "Updated Tech Conference",
-#     "date": "2026-06-20T09:00:00Z",
-#     "capacity": 200,
-#     "registrationCount": 0,
-#     "status": "active",
-#     "category": "conference",
-#     "createdAt": "2026-01-01T10:00:00Z",
-#     "updatedAt": "2026-01-05T12:00:00Z"
-#   }
-# }
+ Response (200 OK)
+ {
+   "message": "Event updated",
+   "data": {
+     "id": "event_123abc",
+     "name": "Updated Tech Conference",
+     "date": "2026-06-20T09:00:00Z",
+     "capacity": 200,
+     "registrationCount": 0,
+     "status": "active",
+     "category": "conference",
+     "createdAt": "2026-01-01T10:00:00Z",
+     "updatedAt": "2026-01-05T12:00:00Z"
+   }
+ }
 
-# 5. Delete Event
+## 5. Delete Event
 curl -X DELETE http://localhost:3000/api/v1/events/event_123abc \
   -H "Authorization: Bearer <your-token>"
 
-# Response (200 OK)
-# {
-#   "message": "Event deleted"
-# }
+ Response (200 OK)
+ {
+   "message": "Event deleted"
+ }
 
-# API Documentation
+ API Documentation
 
 Full documentation is available at:
 https://github.com/IvanBanal/COMP-3018-Module-3-5-Assignment
