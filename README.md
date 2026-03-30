@@ -25,6 +25,7 @@ It is suitable for developers building event management tools, internal company 
 # Clone the repository
 git clone https://github.com/IvanBanal/COMP-3018-Module-3-5-Assignment
 cd COMP-3018-Module-3-5-Assignment
+```
 
 # Install dependencies
 npm install
