@@ -183,7 +183,7 @@ curl -X DELETE http://localhost:3000/api/v1/events/evt_000001 \
 # API Documentation
 
 Full documentation is available at:
-https://ivanbanal.github.io/COMP-3018-Module-3-5-Assignment/#tag/Events
+https://ivanbanal.github.io/COMP-3018-Module-3-5-Assignment/
 
 Swagger UI (local):
 http://localhost:3000/api-docs
