@@ -1,8 +1,23 @@
 import express, { Express } from "express";
+import dotenv from "dotenv";
+
+// Load environment variables BEFORE your internal imports!
+dotenv.config();
+
+import cors from "cors";
+import { getCorsOptions } from "../src/config/corsConfig";
+import { getHelmetConfig } from "../src/config/helmetConfig";
+import setupSwagger from "../src/config/swagger";
 import eventRoutes from "../src/api/v1/routes/eventRoutes";
+
 
 // Initialize Express application
 const app: Express = express();
+
+// Apply basic Helmet security
+app.use(getHelmetConfig());
+
+app.use(cors(getCorsOptions()));
 
 // Define a route
 app.get("/", (req, res) => {
@@ -23,5 +38,8 @@ app.use(express.json());
 
 // API Routes.
 app.use("/api/v1/events", eventRoutes);
+
+// Setup Swagger
+setupSwagger(app);
 
 export default app;
