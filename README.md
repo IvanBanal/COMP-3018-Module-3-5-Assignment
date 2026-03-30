@@ -170,7 +170,7 @@ curl -X DELETE http://localhost:3000/api/v1/events/event_123abc \
    "message": "Event deleted"
  }
 
- API Documentation
+# API Documentation
 
 Full documentation is available at:
 https://github.com/IvanBanal/COMP-3018-Module-3-5-Assignment
