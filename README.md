@@ -63,6 +63,7 @@ Health check endpoint: http://localhost:3000/api/v1/health
 # API Endpoints
 
 ## 1. Create Event
+```bash
 curl -X POST http://localhost:3000/api/v1/events \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token>" \
@@ -89,6 +90,7 @@ Response (201 Created)
      "updatedAt": "2026-01-01T10:00:00Z"
    }
  }
+ ```
 
 ## 2. Get All Events
 curl -X GET http://localhost:3000/api/v1/events \
@@ -114,7 +116,7 @@ curl -X GET http://localhost:3000/api/v1/events \
  }
 
 ## 3. Get Event by ID
-curl -X GET http://localhost:3000/api/v1/events/event_123abc \
+curl -X GET http://localhost:3000/api/v1/events/evt_000001 \
   -H "Authorization: Bearer <your-token>"
 
  Response (200 OK)
@@ -134,7 +136,7 @@ curl -X GET http://localhost:3000/api/v1/events/event_123abc \
  }
 
 ## 4. Update Event
-curl -X PUT http://localhost:3000/api/v1/events/event_123abc \
+curl -X PUT http://localhost:3000/api/v1/events/evt_000001 \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer <your-token>" \
   -d '{
@@ -162,7 +164,7 @@ curl -X PUT http://localhost:3000/api/v1/events/event_123abc \
  }
 
 ## 5. Delete Event
-curl -X DELETE http://localhost:3000/api/v1/events/event_123abc \
+curl -X DELETE http://localhost:3000/api/v1/events/evt_000001 \
   -H "Authorization: Bearer <your-token>"
 
  Response (200 OK)
